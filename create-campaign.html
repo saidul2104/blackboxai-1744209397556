@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Campaign | Influencer Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4f46e5;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4f46e5;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <i class="fas fa-handshake text-indigo-600 text-2xl mr-2"></i>
+                <span class="text-xl font-bold text-indigo-600">Influencer Hub</span>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+                <a href="brand-dashboard.html" class="text-gray-700 hover:text-indigo-600 font-medium">Dashboard</a>
+                <a href="create-campaign.html" class="text-indigo-600 font-medium">Create Campaign</a>
+            </nav>
+            
+            <!-- User Dropdown -->
+            <div class="flex items-center space-x-4">
+                <div class="relative group">
+                    <button class="flex items-center space-x-2">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-8 h-8 rounded-full">
+                        <span class="hidden md:inline">Brand Account</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Create New Campaign</h1>
+                <p class="text-gray-600">Fill out the details below to launch your influencer campaign</p>
+            </div>
+            <a href="brand-dashboard.html" class="text-indigo-600 hover:text-indigo-800 flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Dashboard
+            </a>
+        </div>
+
+        <!-- Campaign Form -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <!-- Form Steps -->
+            <div class="border-b border-gray-200">
+                <nav class="flex">
+                    <div class="w-1/3 py-4 px-6 text-center border-b-2 border-indigo-500 font-medium text-indigo-600">
+                        <i class="fas fa-info-circle mr-2"></i> Campaign Details
+                    </div>
+                    <div class="w-1/3 py-4 px-6 text-center border-b-2 border-gray-200 font-medium text-gray-500">
+                        <i class="fas fa-user-tag mr-2"></i> Influencer Requirements
+                    </div>
+                    <div class="w-1/3 py-4 px-6 text-center border-b-2 border-gray-200 font-medium text-gray-500">
+                        <i class="fas fa-money-bill-wave mr-2"></i> Budget & Payment
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Form Content -->
+            <form class="p-6">
+                <!-- Campaign Details -->
+                <div id="step-1">
+                    <h2 class="text-xl font-semibold mb-6 text-indigo-600">Campaign Information</h2>
+                    
+                    <!-- Campaign Name -->
+                    <div class="mb-6">
+                        <label for="campaign-name" class="block text-sm font-medium text-gray-700 mb-1">Campaign Name *</label>
+                        <input type="text" id="campaign-name" name="campaign-name" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="e.g. Summer Collection Launch">
+                    </div>
+                    
+                    <!-- Campaign Description -->
+                    <div class="mb-6">
+                        <label for="campaign-desc" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+                        <textarea id="campaign-desc" name="campaign-desc" rows="4" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="Describe your campaign goals and requirements"></textarea>
+                    </div>
+                    
+                    <!-- Campaign Dates -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="start-date" class="block text-sm font-medium text-gray-700 mb-1">Start Date *</label>
+                            <input type="date" id="start-date" name="start-date" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="end-date" class="block text-sm font-medium text-gray-700 mb-1">End Date *</label>
+                            <input type="date" id="end-date" name="end-date" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                    
+                    <!-- Content Type -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Content Type *</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="content-type" value="post" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <span>Social Post</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="content-type" value="story" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <span>Story</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="content-type" value="video" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <span>Video</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="content-type" value="blog" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <span>Blog Post</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Button -->
+                    <div class="flex justify-end">
+                        <button type="button" onclick="nextStep(1, 2)"
+                            class="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Next: Influencer Requirements <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Influencer Requirements (Hidden by default) -->
+                <div id="step-2" class="hidden">
+                    <h2 class="text-xl font-semibold mb-6 text-indigo-600">Influencer Requirements</h2>
+                    
+                    <!-- Social Media Platform -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Social Media Platform *</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="platform" value="instagram" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <i class="fab fa-instagram text-pink-600"></i>
+                                <span>Instagram</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="platform" value="facebook" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <i class="fab fa-facebook text-blue-600"></i>
+                                <span>Facebook</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="platform" value="youtube" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <i class="fab fa-youtube text-red-600"></i>
+                                <span>YouTube</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="platform" value="tiktok" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <i class="fab fa-tiktok text-black"></i>
+                                <span>TikTok</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Niche Selection -->
+                    <div class="mb-6">
+                        <label for="niche" class="block text-sm font-medium text-gray-700 mb-1">Influencer Niche *</label>
+                        <select id="niche" name="niche" multiple
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="fashion">Fashion</option>
+                            <option value="beauty">Beauty</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="travel">Travel</option>
+                            <option value="food">Food</option>
+                            <option value="tech">Technology</option>
+                            <option value="fitness">Fitness</option>
+                            <option value="parenting">Parenting</option>
+                        </select>
+                        <p class="text-xs text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple niches</p>
+                    </div>
+                    
+                    <!-- Follower Range -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Follower Range</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label for="min-followers" class="block text-xs text-gray-500 mb-1">Min Followers</label>
+                                <select id="min-followers" name="min-followers"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                                    <option value="1000">1,000+</option>
+                                    <option value="5000">5,000+</option>
+                                    <option value="10000">10,000+</option>
+                                    <option value="50000">50,000+</option>
+                                    <option value="100000">100,000+</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <span class="text-gray-400">to</span>
+                            </div>
+                            <div>
+                                <label for="max-followers" class="block text-xs text-gray-500 mb-1">Max Followers</label>
+                                <select id="max-followers" name="max-followers"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                                    <option value="50000">50,000</option>
+                                    <option value="100000">100,000</option>
+                                    <option value="500000">500,000</option>
+                                    <option value="1000000">1,000,000</option>
+                                    <option value="" selected>No limit</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Engagement Rate -->
+                    <div class="mb-6">
+                        <label for="engagement" class="block text-sm font-medium text-gray-700 mb-2">Minimum Engagement Rate: <span id="engagement-value">3</span>%</label>
+                        <input type="range" id="engagement" name="engagement" min="1" max="10" value="3"
+                            class="w-full range-slider h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    
+                    <!-- Verification Requirement -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Verification Requirements</label>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="verification" name="verification"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded mr-2">
+                            <label for="verification">Require influencers to verify their social media accounts</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between">
+                        <button type="button" onclick="nextStep(2, 1)"
+                            class="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button type="button" onclick="nextStep(2, 3)"
+                            class="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Next: Budget & Payment <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Budget & Payment (Hidden by default) -->
+                <div id="step-3" class="hidden">
+                    <h2 class="text-xl font-semibold mb-6 text-indigo-600">Budget & Payment</h2>
+                    
+                    <!-- Campaign Budget -->
+                    <div class="mb-6">
+                        <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Total Campaign Budget: ৳<span id="budget-value">10000</span></label>
+                        <input type="range" id="budget" name="budget" min="5000" max="100000" step="1000" value="10000"
+                            class="w-full range-slider h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>৳5,000</span>
+                            <span>৳50,000</span>
+                            <span>৳100,000+</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Breakdown -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-sm font-medium text-gray-700 mb-3">Payment Breakdown</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Total Budget</span>
+                                <span class="font-medium">৳<span id="budget-display">10000</span></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Platform Fee (15%)</span>
+                                <span class="font-medium">৳<span id="fee-display">1500</span></span>
+                            </div>
+                            <div class="flex justify-between border-t border-gray-200 pt-2">
+                                <span class="text-gray-600">Influencer Payout</span>
+                                <span class="font-medium">৳<span id="payout-display">8500</span></span>
+                            </div>
+                            <div class="flex justify-between border-t border-gray-200 pt-2">
+                                <span class="text-gray-600">Upfront Payment (40%)</span>
+                                <span class="font-medium text-indigo-600">৳<span id="upfront-display">4000</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Methods -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Payment Method *</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <label class="border rounded-md p-3 hover:border-indigo-500 cursor-pointer">
+                                <input type="radio" name="payment-method" value="bkash" class="sr-only" checked>
+                                <div class="flex flex-col items-center">
+                                    <img src="https://seeklogo.com/images/B/bkash-logo-C7D5A5A0C4-seeklogo.com.png" alt="bKash" class="h-8 mb-2">
+                                    <span class="text-xs">bKash</span>
+                                </div>
+                            </label>
+                            <label class="border rounded-md p-3 hover:border-indigo-500 cursor-pointer">
+                                <input type="radio" name="payment-method" value="nagad" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <img src="https://seeklogo.com/images/N/nagad-logo-4B6D8F7826-seeklogo.com.png" alt="Nagad" class="h-8 mb-2">
+                                    <span class="text-xs">Nagad</span>
+                                </div>
+                            </label>
+                            <label class="border rounded-md p-3 hover:border-indigo-500 cursor-pointer">
+                                <input type="radio" name="payment-method" value="rocket" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <img src="https://seeklogo.com/images/D/dutch-bangla-rocket-logo-8A456C5D0D-seeklogo.com.png" alt="Rocket" class="h-8 mb-2">
+                                    <span class="text-xs">Rocket</span>
+                                </div>
+                            </label>
+                            <label class="border rounded-md p-3 hover:border-indigo-500 cursor-pointer">
+                                <input type="radio" name="payment-method" value="bank" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <i class="fas fa-university text-3xl text-gray-600 mb-2"></i>
+                                    <span class="text-xs">Bank Transfer</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms -->
+                    <div class="mb-6">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="campaign-terms" name="campaign-terms" type="checkbox" required
+                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="campaign-terms" class="font-medium text-gray-700">
+                                    I agree to pay 40% upfront and understand funds will be held in escrow until campaign completion
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between">
+                        <button type="button" onclick="nextStep(3, 2)"
+                            class="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button type="submit"
+                            class="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Launch Campaign <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Influencer Hub</h3>
+                    <p class="text-gray-400">Connecting brands with authentic influencers for impactful collaborations.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Success Stories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">brands@influencerhub.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">+880 1234 567890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">Dhaka, Bangladesh</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Influencer Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form step navigation
+        function nextStep(current, next) {
+            document.getElementById(`step-${current}`).classList.add('hidden');
+            document.getElementById(`step-${next}`).classList.remove('hidden');
+            
+            // Update step indicators
+            document.querySelectorAll('nav div').forEach((el, index) => {
+                if (index < next - 1) {
+                    el.classList.add('border-indigo-500', 'text-indigo-600');
+                    el.classList.remove('border-gray-200', 'text-gray-500');
+                } else if (index > next - 1) {
+                    el.classList.remove('border-indigo-500', 'text-indigo-600');
+                    el.classList.add('border-gray-200', 'text-gray-500');
+                }
+            });
+        }
+        
+        // Budget slider
+        const budgetSlider = document.getElementById('budget');
+        const budgetValue = document.getElementById('budget-value');
+        const budgetDisplay = document.getElementById('budget-display');
+        const feeDisplay = document.getElementById('fee-display');
+        const payoutDisplay = document.getElementById('payout-display');
+        const upfrontDisplay = document.getElementById('upfront-display');
+        
+        budgetSlider.addEventListener('input', function() {
+            const value = this.value;
+            budgetValue.textContent = value;
+            budgetDisplay.textContent = value;
+            
+            const fee = Math.round(value * 0.15);
+            const payout = value - fee;
+            const upfront = Math.round(value * 0.4);
+            
+            feeDisplay.textContent = fee;
+            payoutDisplay.textContent = payout;
+            upfrontDisplay.textContent = upfront;
+        });
+        
+        // Engagement slider
+        const engagementSlider = document.getElementById('engagement');
+        const engagementValue = document.getElementById('engagement-value');
+        
+        engagementSlider.addEventListener('input', function() {
+            engagementValue.textContent = this.value;
+        });
+    </script>
+</body>
+</html>
